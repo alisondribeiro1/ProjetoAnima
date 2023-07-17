@@ -21,5 +21,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=build /app/out /app
 
+ENV ASPNETCORE_URLS=http://*:5000
+EXPOSE 5000
+
 # Definir o comando de entrada para iniciar a aplicação
 CMD ["dotnet", "Aluno.API.dll"]

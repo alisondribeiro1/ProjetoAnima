@@ -20,7 +20,7 @@ services:
     # Configurações adicionais para o micro serviço Alunos
     container_name: alunos-service
     ports:
-      - 5000:80 # Porta mapeada para acesso externo
+      - 5000:5000 # Porta mapeada para acesso externo
     depends_on:
       - db
 

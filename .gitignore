@@ -608,3 +608,12 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,visualstudiocode,aspnetcore,dotnetcore,visualstudio
+/src/Alunos/Aluno.API/bin
+/src/Alunos/Aluno.API/obj
+/src/Alunos/.vs
+/src/Alunos/Aluno.Infrastructure/bin
+/src/Alunos/Aluno.Infrastructure/obj
+/src/Alunos/Aluno.Infrastructure/.vs
+/src/Alunos/Aluno.Domain/.vs
+/src/Alunos/Aluno.Domain/obj
+/src/Alunos/Aluno.Domain/bin

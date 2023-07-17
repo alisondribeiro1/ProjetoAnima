@@ -1,3 +1,0 @@
-C:\ProjetoAnima\src\Alunos\Alunos.Domain.dll
-C:\ProjetoAnima\src\Alunos\Alunos.Domain.deps.json
-C:\ProjetoAnima\src\Alunos\Alunos.Domain.pdb
