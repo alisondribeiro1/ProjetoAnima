@@ -8,8 +8,8 @@ WORKDIR /app
 COPY . /app
 
 # Restaurar as dependências e compilar a aplicação
-RUN dotnet restore ./Alunos.API
-RUN dotnet build --no-restore -c Release ./Alunos.API
+RUN dotnet restore ./Aluno.API
+RUN dotnet build --no-restore -c Release ./Aluno.API
 
 # Publicar a aplicação
 RUN dotnet publish --no-build -c Release -o /app/out
@@ -22,4 +22,4 @@ WORKDIR /app
 COPY --from=build /app/out /app
 
 # Definir o comando de entrada para iniciar a aplicação
-CMD ["dotnet", "Alunos.API.dll"]
+CMD ["dotnet", "Aluno.API.dll"]
