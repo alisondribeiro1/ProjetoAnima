@@ -1,0 +1,93 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    container_name: base-postgre
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      
+  alunosservice:
+    build:
+      context: ./src/Alunos
+      dockerfile: ../../docker/alunosservice.dockerfile
+    # Configurações adicionais para o micro serviço Alunos
+    container_name: alunos-service
+    ports:
+      - 5000:80 # Porta mapeada para acesso externo
+    depends_on:
+      - db
+
+#  certificadosservice:
+#    build:
+#      context: ./src/Certificados/Certificados.API
+#      dockerfile: ../../docker/certificadosservice.dockerfile
+#    # Configurações adicionais para o micro serviço Certificados
+#    ports:
+#      - "8002:80"  # Porta mapeada para acesso externo
+#
+#  mensalidadesservice:
+#    build:
+#      context: ./src/Mensalidades/Mensalidades.API
+#      dockerfile: ../../docker/mensalidadesservice.dockerfile
+#    # Configurações adicionais para o micro serviço Mensalidades
+#    ports:
+#      - "8003:80"  # Porta mapeada para acesso externo
+#
+#  notasservice:
+#    build:
+#      context: ./src/Notas/Notas.API
+#      dockerfile: ../../docker/notasservice.dockerfile
+#    # Configurações adicionais para o micro serviço Notas
+#    ports:
+#      - "8004:80"  # Porta mapeada para acesso externo
+#
+#  cursosservice:
+#    build:
+#      context: ./src/Cursos/Cursos.API
+#      dockerfile: ../../docker/cursosservice.dockerfile
+#    # Configurações adicionais para o micro serviço Cursos
+#    ports:
+#      - "8005:80"  # Porta mapeada para acesso externo
+#
+#  sapintegration:
+#    build:
+#      context: ./src/Integracoes/SAP
+#      dockerfile: ../../docker/integracoes/sap.dockerfile
+#    # Configurações adicionais para a integração com SAP
+#
+#  servicenowintegration:
+#    build:
+#      context: ./src/Integracoes/ServiceNow
+#      dockerfile: ../../docker/integracoes/servicenow.dockerfile
+#    # Configurações adicionais para a integração com ServiceNow
+#
+#  webhookservice:
+#    build:
+#      context: ./src/WebHook/WebHook.API
+#      dockerfile: ../../docker/webhookservice.dockerfile
+#    # Configurações adicionais para o micro serviço WebHook
+#    ports:
+#      - "8006:80"  # Porta mapeada para acesso externo
+#
+#  frontend:
+#    build:
+#      context: ./web/Frontend
+#      dockerfile: ../../docker/frontend.dockerfile
+#    # Configurações adicionais para o front-end Vue.js
+#    ports:
+#      - "8000:80"  # Porta mapeada para acesso externo
+
+#oracle:
+#    image: wnameless/oracle-xe-11g
+#    container_name: base-oracle
+#    ports:
+#      - 1521:1521
+#    volumes:
+#      - ./data:/u01/app/oracle/data

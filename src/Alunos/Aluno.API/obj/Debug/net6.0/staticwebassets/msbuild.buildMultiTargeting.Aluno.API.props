@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Aluno.API.props" />
+</Project>

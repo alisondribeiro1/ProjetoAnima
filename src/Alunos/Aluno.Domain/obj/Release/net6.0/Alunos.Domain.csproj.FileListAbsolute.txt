@@ -1,0 +1,12 @@
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\bin\Release\net6.0\Alunos.Domain.deps.json
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\bin\Release\net6.0\Alunos.Domain.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\bin\Release\net6.0\Alunos.Domain.pdb
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\Alunos.Domain.csproj.AssemblyReference.cache
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\Alunos.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\Alunos.Domain.AssemblyInfoInputs.cache
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\Alunos.Domain.AssemblyInfo.cs
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\Alunos.Domain.csproj.CoreCompileInputs.cache
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\Alunos.Domain.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\refint\Alunos.Domain.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\Alunos.Domain.pdb
+C:\ProjetoAnima\src\Alunos\Alunos.Domain\obj\Release\net6.0\ref\Alunos.Domain.dll

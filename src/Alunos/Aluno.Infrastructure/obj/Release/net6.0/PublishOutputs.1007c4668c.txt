@@ -1,0 +1,16 @@
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Alunos.Infrastructure.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Alunos.Infrastructure.runtimeconfig.json
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Alunos.Infrastructure.pdb
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.EntityFrameworkCore.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.Extensions.Caching.Abstractions.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.Extensions.Caching.Memory.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.Extensions.DependencyInjection.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.Extensions.Logging.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.Extensions.Logging.Abstractions.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.Extensions.Options.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Microsoft.Extensions.Primitives.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Alunos.Domain.dll
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Alunos.Domain.pdb
+C:\ProjetoAnima\src\Alunos\Alunos.Infrastructure\bin\Release\net6.0\publish\Alunos.Infrastructure.deps.json
