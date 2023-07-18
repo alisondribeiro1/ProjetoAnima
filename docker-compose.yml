@@ -13,12 +13,12 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
       
-  alunosservice:
+  usuarioservice:
     build:
-      context: ./src/Alunos
-      dockerfile: ../../docker/alunosservice.dockerfile
-    # Configurações adicionais para o micro serviço Alunos
-    container_name: alunos-service
+      context: ./src/Usuario
+      dockerfile: ../../docker/usuariosservice.dockerfile
+    # Configurações adicionais para o micro serviço Usuários
+    container_name: usuarios-service
     ports:
       - 5000:5000 # Porta mapeada para acesso externo
     depends_on:

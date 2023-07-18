@@ -8,8 +8,8 @@ WORKDIR /app
 COPY . /app
 
 # Restaurar as dependências e compilar a aplicação
-RUN dotnet restore ./Aluno.API
-RUN dotnet build --no-restore -c Release ./Aluno.API
+RUN dotnet restore ./Usuario.API
+RUN dotnet build --no-restore -c Release ./Usuario.API
 
 # Publicar a aplicação
 RUN dotnet publish --no-build -c Release -o /app/out
@@ -25,4 +25,4 @@ ENV ASPNETCORE_URLS=http://*:5000
 EXPOSE 5000
 
 # Definir o comando de entrada para iniciar a aplicação
-CMD ["dotnet", "Aluno.API.dll"]
+CMD ["dotnet", "Usuario.API.dll"]
