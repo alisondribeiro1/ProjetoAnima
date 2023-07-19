@@ -23,6 +23,13 @@ services:
       - 5000:5000 # Porta mapeada para acesso externo
     depends_on:
       - db
+  frontend:
+    build:
+      context: ./web/frontend
+      dockerfile: ../../docker/frontend.dockerfile
+    # Configurações adicionais para o front-end Vue.js
+    ports:
+      - "8000:80"  # Porta mapeada para acesso externo
 
 #  certificadosservice:
 #    build:
@@ -76,13 +83,7 @@ services:
 #    ports:
 #      - "8006:80"  # Porta mapeada para acesso externo
 #
-#  frontend:
-#    build:
-#      context: ./web/Frontend
-#      dockerfile: ../../docker/frontend.dockerfile
-#    # Configurações adicionais para o front-end Vue.js
-#    ports:
-#      - "8000:80"  # Porta mapeada para acesso externo
+
 
 #oracle:
 #    image: wnameless/oracle-xe-11g
