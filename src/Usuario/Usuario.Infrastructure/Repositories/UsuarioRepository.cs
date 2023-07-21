@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Usuario.Infrastructure.Data;
 using Usuario.Domain.Models;
+using Usuario.Infrastructure.Data;
 using Usuario.Infrastructure.Repositories.Interfaces;
-
 
 namespace Usuario.Infrastructure.Repositories
 {

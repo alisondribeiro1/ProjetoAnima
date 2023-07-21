@@ -1,4 +1,4 @@
-﻿namespace Alunos.Domain.Validations
+﻿namespace Usuario.Domain.Validations
 {
     public class CPFValidator
     {
