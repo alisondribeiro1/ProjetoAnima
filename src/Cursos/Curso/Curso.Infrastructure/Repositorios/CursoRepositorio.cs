@@ -1,4 +1,5 @@
 ﻿using Curso.Domain.Models;
+using Curso.Domain.Requests;
 using Curso.Infrastructure.Data;
 using Curso.Infrastructure.Repositorios.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -26,14 +27,21 @@ namespace Curso.Infrastructure.Repositorios
         {
             return await _cursoDbContext.Cursos.ToListAsync();
         }
-        public async Task<CursoModel> Adicionar(CursoModel curso)
+        public async Task<CursoModel> Adicionar(CursoRequest cursoRequest)
         {
-            await _cursoDbContext.Cursos.AddAsync(curso);
+            CursoModel cursoModel = new CursoModel
+            {
+                Nome = cursoRequest.Nome,
+                Descricao = cursoRequest.Descricao,
+                CargaHoraria = cursoRequest.CargaHoraria
+            };
+
+            await _cursoDbContext.Cursos.AddAsync(cursoModel);
             await _cursoDbContext.SaveChangesAsync();
 
-            return curso;
+            return cursoModel;
         }
-        public async Task<CursoModel> Atualizar(CursoModel curso, int idCurso)
+        public async Task<CursoModel> Atualizar(CursoRequest cursoRequest, int idCurso)
         {
             CursoModel cursoPorId = await BuscarCursoPorId(idCurso);
 
@@ -42,10 +50,9 @@ namespace Curso.Infrastructure.Repositorios
                 throw new Exception($"Curso não encontrado. Id: {idCurso}");
             }
 
-            cursoPorId.idCurso = curso.idCurso;
-            cursoPorId.Nome = curso.Nome;
-            cursoPorId.Descricao = curso.Descricao;
-            cursoPorId.CargaHoraria = curso.CargaHoraria;
+            cursoPorId.Nome = cursoRequest.Nome;
+            cursoPorId.Descricao = cursoRequest.Descricao;
+            cursoPorId.CargaHoraria = cursoRequest.CargaHoraria;
 
             _cursoDbContext.Cursos.Update(cursoPorId);
             await _cursoDbContext.SaveChangesAsync();

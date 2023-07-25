@@ -1,4 +1,5 @@
 ﻿using Curso.Domain.Models;
+using Curso.Domain.Requests;
 using Curso.Infrastructure.Data;
 using Curso.Infrastructure.Repositorios.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -26,14 +27,19 @@ namespace Curso.Infrastructure.Repositorios
         {
             return await _cursoDbContext.Modelos.ToListAsync();
         }
-        public async Task<ModeloModel> Adicionar(ModeloModel modelo)
+        public async Task<ModeloModel> Adicionar(ModeloRequest modeloRequest)
         {
-            await _cursoDbContext.Modelos.AddAsync(modelo);
+            ModeloModel modeloModel = new ModeloModel
+            {
+                Descricao = modeloRequest.Descricao
+            };
+
+            await _cursoDbContext.Modelos.AddAsync(modeloModel);
             await _cursoDbContext.SaveChangesAsync();
 
-            return modelo;
+            return modeloModel;
         }
-        public async Task<ModeloModel> Atualizar(ModeloModel modelo, int idModelo)
+        public async Task<ModeloModel> Atualizar(ModeloRequest modeloRequest, int idModelo)
         {
             ModeloModel modeloPorId = await BuscarModeloPorId(idModelo);
 
@@ -42,8 +48,7 @@ namespace Curso.Infrastructure.Repositorios
                 throw new Exception($"Modelo não encontrado. Id: {idModelo}");
             }
 
-            modeloPorId.IdModelo = modelo.IdModelo;
-            modeloPorId.Descricao = modelo.Descricao;
+            modeloPorId.Descricao = modeloRequest.Descricao;
 
             _cursoDbContext.Modelos.Update(modeloPorId);
             await _cursoDbContext.SaveChangesAsync();

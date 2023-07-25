@@ -1,4 +1,5 @@
 ﻿using Curso.Domain.Models;
+using Curso.Domain.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace Curso.Infrastructure.Repositorios.Interfaces
     {
         Task<List<CategoriaModel>> BuscarTodasCategorias();
         Task<CategoriaModel> BuscarCategoriaPorId(int idCategoria);
-        Task<CategoriaModel> Adicionar(CategoriaModel categoria);
-        Task<CategoriaModel> Atualizar(CategoriaModel categoria, int idCategoria);
+        Task<CategoriaModel> Adicionar(CategoriaRequest categoriaRequest);
+        Task<CategoriaModel> Atualizar(CategoriaRequest categoriaRequest, int idCategoria);
         Task<bool> Apagar(int idCategoria);
     }
 }

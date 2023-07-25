@@ -25,7 +25,7 @@ namespace Curso.Api
 
             var connectionString = configuration.GetConnectionString("PostgreSQLConnection");
             builder.Services.AddDbContext<CursoDbContext>(options =>
-            options.UseNpgsql(connectionString, b => b.MigrationsAssembly("Cursos")));
+            options.UseNpgsql(connectionString, b => b.MigrationsAssembly("Curso.Api")));
 
             builder.Services.AddScoped<ICursoRepositorio, CursoRepositorio>();
             builder.Services.AddScoped<ICategoriaRepositorio, CategoriaRepositorio>();

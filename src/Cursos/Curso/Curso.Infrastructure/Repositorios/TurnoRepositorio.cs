@@ -1,4 +1,5 @@
 ﻿using Curso.Domain.Models;
+using Curso.Domain.Requests;
 using Curso.Infrastructure.Data;
 using Curso.Infrastructure.Repositorios.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -25,14 +26,19 @@ namespace Curso.Infrastructure.Repositorios
         {
             return await _cursoDbContext.Turnos.ToListAsync();
         }
-        public async Task<TurnoModel> Adicionar(TurnoModel turno)
+        public async Task<TurnoModel> Adicionar(TurnoRequest turnoRequest)
         {
-            await _cursoDbContext.Turnos.AddAsync(turno);
+            TurnoModel turnoModel = new TurnoModel
+            {
+                Descricao = turnoRequest.Descricao
+            };
+
+            await _cursoDbContext.Turnos.AddAsync(turnoModel);
             await _cursoDbContext.SaveChangesAsync();
 
-            return turno;
+            return turnoModel;
         }
-        public async Task<TurnoModel> Atualizar(TurnoModel turno, int idTurno)
+        public async Task<TurnoModel> Atualizar(TurnoRequest turnoRequest, int idTurno)
         {
             TurnoModel turnoPorId = await BuscarTurnoPorId(idTurno);
 
@@ -41,8 +47,7 @@ namespace Curso.Infrastructure.Repositorios
                 throw new Exception($"Turno não encontrado. Id: {idTurno}");
             }
 
-            turnoPorId.IdTurno = turno.IdTurno;
-            turnoPorId.Descricao = turno.Descricao;
+            turnoPorId.Descricao = turnoRequest.Descricao;
 
             _cursoDbContext.Turnos.Update(turnoPorId);
             await _cursoDbContext.SaveChangesAsync();

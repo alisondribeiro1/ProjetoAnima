@@ -1,4 +1,5 @@
 ﻿using Curso.Domain.Models;
+using Curso.Domain.Requests;
 using Curso.Infrastructure.Data;
 using Curso.Infrastructure.Repositorios.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -28,14 +29,19 @@ namespace Curso.Infrastructure.Repositorios
             return await _cursoDbContext.Categorias.ToListAsync();
         }
 
-        public async Task<CategoriaModel> Adicionar(CategoriaModel categoria)
+        public async Task<CategoriaModel> Adicionar(CategoriaRequest categoriaRequest)
         {
-            await _cursoDbContext.Categorias.AddAsync(categoria);
+            CategoriaModel categoriaModel = new CategoriaModel
+            {
+                Descricao = categoriaRequest.Descricao
+            };
+
+            await _cursoDbContext.Categorias.AddAsync(categoriaModel);
             await _cursoDbContext.SaveChangesAsync();
 
-            return categoria;
+            return categoriaModel;
         }
-        public async Task<CategoriaModel> Atualizar(CategoriaModel categoria, int idCategoria)
+        public async Task<CategoriaModel> Atualizar(CategoriaRequest categoriaRequest, int idCategoria)
         {
             CategoriaModel categoriaPorId = await BuscarCategoriaPorId(idCategoria);
 
@@ -44,8 +50,7 @@ namespace Curso.Infrastructure.Repositorios
                 throw new Exception($"Categoria não encontrada. Id: {idCategoria}");
             }
 
-            categoriaPorId.IdCategoria = categoria.IdCategoria;
-            categoriaPorId.Descricao = categoria.Descricao;
+            categoriaPorId.Descricao = categoriaRequest.Descricao;
 
             _cursoDbContext.Categorias.Update(categoriaPorId);
             await _cursoDbContext.SaveChangesAsync();

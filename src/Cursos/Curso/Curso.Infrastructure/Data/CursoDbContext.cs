@@ -1,4 +1,5 @@
 ﻿using Curso.Domain.Models;
+using Curso.Infrastructure.Data.Map;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,12 @@ namespace Curso.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new CategoriaMap());
+            modelBuilder.ApplyConfiguration(new CursoMap());
+            modelBuilder.ApplyConfiguration(new CursoOfertaMap());
+            modelBuilder.ApplyConfiguration(new ModeloMap());
+            modelBuilder.ApplyConfiguration(new TurnoMap());
+
             base.OnModelCreating(modelBuilder);
         }
     }

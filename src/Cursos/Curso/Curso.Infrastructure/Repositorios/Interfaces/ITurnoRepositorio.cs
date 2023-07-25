@@ -1,4 +1,5 @@
 ﻿using Curso.Domain.Models;
+using Curso.Domain.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace Curso.Infrastructure.Repositorios.Interfaces
     {
         Task<List<TurnoModel>> BuscarTodosTurnos();
         Task<TurnoModel> BuscarTurnoPorId(int idTurno);
-        Task<TurnoModel> Adicionar(TurnoModel turno);
-        Task<TurnoModel> Atualizar(TurnoModel turno, int idTurno);
+        Task<TurnoModel> Adicionar(TurnoRequest turnoRequest);
+        Task<TurnoModel> Atualizar(TurnoRequest turnoRequest, int idTurno);
         Task<bool> Apagar(int idTurno);
     }
 }
