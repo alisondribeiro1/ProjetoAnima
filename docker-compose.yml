@@ -23,6 +23,26 @@ services:
       - 5000:5000 # Porta mapeada para acesso externo
     depends_on:
       - db
+  
+  boletoservice:
+    build:
+      context: ./src/Boleto
+      dockerfile: Dockerfile
+    # Configurações adicionais para o micro serviço Usuários
+    container_name: boleto-service
+    ports:
+      - 5003:5003 # Porta mapeada para acesso externo
+    depends_on:
+      - db
+  
+  apifinanceiroservice:
+    build:
+      context: ./src/Boleto
+      dockerfile: Dockerfile
+    # Configurações adicionais para o micro serviço Usuários
+    container_name: apifinanceiro-service
+    ports:
+      - 5106:5106 # Porta mapeada para acesso externo
       
   frontend:
     build:
