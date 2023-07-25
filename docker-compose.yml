@@ -37,12 +37,12 @@ services:
   
   apifinanceiroservice:
     build:
-      context: ./src/Boleto
+      context: ./src/ApiFinanceiro
       dockerfile: Dockerfile
     # Configurações adicionais para o micro serviço Usuários
     container_name: apifinanceiro-service
     ports:
-      - 5106:5106 # Porta mapeada para acesso externo
+      - 5001:5001 # Porta mapeada para acesso externo
       
   frontend:
     build:
@@ -61,7 +61,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - 2181:2181
-
+ 
   kafka:
     image: confluentinc/cp-kafka:latest
     networks: 

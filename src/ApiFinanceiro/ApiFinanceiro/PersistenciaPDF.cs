@@ -10,7 +10,19 @@ namespace ApiFinanceiro
     {
         public static void GerarPdf(BoletoModel dadosBoleto, Guid guid)
         {
-            string nomeArquivo = (Directory.GetCurrentDirectory() + $"\\bin\\Debug\\net6.0\\boleto.{guid}.pdf");
+            string nomeArquivo = (Directory.GetCurrentDirectory() + $"/boletos/boleto-{guid}.pdf");
+
+            if (OperatingSystem.IsWindows())
+            {
+                nomeArquivo = (Directory.GetCurrentDirectory() + $"\\bin\\Debug\\net6.0\\boleto-{guid}.pdf");
+            }
+
+            string diretorioBoletos = Path.GetDirectoryName(nomeArquivo);
+
+            if (!Directory.Exists(diretorioBoletos))
+            {
+                Directory.CreateDirectory(diretorioBoletos);
+            }
 
             PdfWriter writer = new PdfWriter(nomeArquivo);
 
@@ -25,7 +37,7 @@ namespace ApiFinanceiro
             doc.Add(new Paragraph($"Data de geração: {dadosBoleto.DataGeracao}"));
             doc.Add(new Paragraph($"Data de vencimento: {dadosBoleto.DataVencimento}"));
 
-            doc.Close();            
+            doc.Close();
         }
     }
 }

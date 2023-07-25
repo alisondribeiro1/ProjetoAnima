@@ -21,8 +21,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=build /app/out /app
 
-ENV ASPNETCORE_URLS=http://*:7193
-EXPOSE 7193
+ENV ASPNETCORE_URLS=http://*:5001
+EXPOSE 5001
 
 # Definir o comando de entrada para iniciar a aplicação
 CMD ["dotnet", "ApiFinanceiro.dll"]
