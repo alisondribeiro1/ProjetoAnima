@@ -92,7 +92,7 @@ namespace Boleto.Infrastructure.Services
 
         private async Task<string> GetBoletoInfoAsync(BoletoRequest boletoRequest)
         {
-            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("https://localhost:7193/api/Exemplo/gerar-boleto", boletoRequest);
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("http://localhost:5001/api/Exemplo/gerar-boleto", boletoRequest);
             response.EnsureSuccessStatusCode();
 
             // Lê o conteúdo do corpo da resposta como uma string
