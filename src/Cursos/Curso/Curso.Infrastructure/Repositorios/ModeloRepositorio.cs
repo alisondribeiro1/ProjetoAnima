@@ -23,6 +23,11 @@ namespace Curso.Infrastructure.Repositorios
             return await _cursoDbContext.Modelos.FirstOrDefaultAsync(x => x.IdModelo == idModelo);
         }
 
+        public async Task<ModeloModel> BuscarModeloPorDescricao(string descricaoModelo)
+        {
+            return await _cursoDbContext.Modelos.FirstOrDefaultAsync(x => x.Descricao == descricaoModelo);
+        }
+
         public async Task<List<ModeloModel>> BuscarTodosModelos()
         {
             return await _cursoDbContext.Modelos.ToListAsync();

@@ -12,6 +12,7 @@ namespace Curso.Infrastructure.Repositorios.Interfaces
     {
         Task<List<CursoModel>> BuscarTodosCursos();
         Task<CursoModel> BuscarCursoPorId(int idCurso);
+        Task<CursoModel> BuscarCursoPorNome(string nomeCurso);
         Task<CursoModel> Adicionar(CursoRequest cursoRequest);
         Task<CursoModel> Atualizar(CursoRequest cursoRequest, int idCurso);
         Task<bool> Apagar(int idCurso);

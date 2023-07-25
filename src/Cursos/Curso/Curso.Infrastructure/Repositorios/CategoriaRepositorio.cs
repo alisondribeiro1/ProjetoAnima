@@ -24,6 +24,11 @@ namespace Curso.Infrastructure.Repositorios
             return await _cursoDbContext.Categorias.FirstOrDefaultAsync(x => x.IdCategoria == idCategoria);
         }
 
+        public async Task<CategoriaModel> BuscarCategoriaPorDescricao(string descricaoCategoria)
+        {
+            return await _cursoDbContext.Categorias.FirstOrDefaultAsync(x => x.Descricao == descricaoCategoria);
+        }
+
         public async Task<List<CategoriaModel>> BuscarTodasCategorias()
         {
             return await _cursoDbContext.Categorias.ToListAsync();

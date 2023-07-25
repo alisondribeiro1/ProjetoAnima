@@ -12,6 +12,7 @@ namespace Curso.Infrastructure.Repositorios.Interfaces
     {
         Task<List<ModeloModel>> BuscarTodosModelos();
         Task<ModeloModel> BuscarModeloPorId(int idModelo);
+        Task<ModeloModel> BuscarModeloPorDescricao(string descricaoModelo);
         Task<ModeloModel> Adicionar(ModeloRequest modeloRequest);
         Task<ModeloModel> Atualizar(ModeloRequest modeloRequest, int idModelo);
         Task<bool> Apagar(int idModelo);

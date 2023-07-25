@@ -12,6 +12,7 @@ namespace Curso.Infrastructure.Repositorios.Interfaces
     {
         Task<List<CategoriaModel>> BuscarTodasCategorias();
         Task<CategoriaModel> BuscarCategoriaPorId(int idCategoria);
+        Task<CategoriaModel> BuscarCategoriaPorDescricao(string descricaoCategoria);
         Task<CategoriaModel> Adicionar(CategoriaRequest categoriaRequest);
         Task<CategoriaModel> Atualizar(CategoriaRequest categoriaRequest, int idCategoria);
         Task<bool> Apagar(int idCategoria);

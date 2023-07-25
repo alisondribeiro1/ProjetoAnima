@@ -22,6 +22,10 @@ namespace Curso.Infrastructure.Repositorios
         {
             return await _cursoDbContext.Turnos.FirstOrDefaultAsync(x => x.IdTurno == idTurno);
         }
+        public async Task<TurnoModel> BuscarTurnoPorDescricao(string descricaoTurno)
+        {
+            return await _cursoDbContext.Turnos.FirstOrDefaultAsync(x => x.Descricao == descricaoTurno);
+        }
         public async Task<List<TurnoModel>> BuscarTodosTurnos()
         {
             return await _cursoDbContext.Turnos.ToListAsync();

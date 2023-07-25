@@ -23,6 +23,11 @@ namespace Curso.Infrastructure.Repositorios
             return await _cursoDbContext.Cursos.FirstOrDefaultAsync(x => x.idCurso == idCurso);
         }
 
+        public async Task<CursoModel> BuscarCursoPorNome(string nomeCurso)
+        {
+            return await _cursoDbContext.Cursos.FirstOrDefaultAsync(x => x.Nome == nomeCurso);
+        }
+
         public async Task<List<CursoModel>> BuscarTodosCursos()
         {
             return await _cursoDbContext.Cursos.ToListAsync();
