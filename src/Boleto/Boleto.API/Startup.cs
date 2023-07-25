@@ -46,6 +46,16 @@ namespace Boleto.API
 
             // Configuração do Swagger
             services.AddSwaggerGen();
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -60,6 +70,8 @@ namespace Boleto.API
 
             // Configurar o uso de roteamento para os controllers da API
             app.UseRouting();
+
+            app.UseCors();
 
             // Configurar a autorização, autenticação ou outras políticas, se necessário
             // app.UseAuthorization();

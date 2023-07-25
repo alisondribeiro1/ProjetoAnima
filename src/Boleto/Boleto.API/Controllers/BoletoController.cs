@@ -26,6 +26,8 @@ namespace Boleto.API.Controllers
         public async Task<ActionResult<List<BoletoModel>>> GetAll()
         {
             List<BoletoModel> boletos = await _boletoService.GetAll();
+
+            Console.WriteLine("Retornando get all");
             
             // Enviar mensagem para o Kafka
             //string json = JsonSerializer.Serialize(boletos);
