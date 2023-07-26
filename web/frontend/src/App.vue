@@ -37,6 +37,20 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import router from "./router";
+import { onMounted } from "vue";
+import { useBoletoStore } from "./store/BoletoStore";
+
+const boletoStore = useBoletoStore();
+
+const cargaInicial = async () => {
+  const promise = boletoStore.buscarBoletos();
+
+  await Promise.all([promise]);
+};
+
+onMounted(() => {
+  cargaInicial();
+});
 
 const routes = [
   "Home",

@@ -4,6 +4,8 @@ using System.Text.Json;
 using Boleto.Domain.Models;
 using Boleto.Infrastructure.Services.Interfaces;
 using Boleto.Domain.SwaggerModels;
+using System.Net.Http;
+using Boleto.Infrastructure.Services.Request;
 
 namespace Boleto.API.Controllers
 {
@@ -13,13 +15,17 @@ namespace Boleto.API.Controllers
     {
         private readonly IBoletoService _boletoService;
         //private readonly IProducer<string, string> _kafkaProducer;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public BoletoController(IBoletoService boletoService
-            //, IProducer<string, string> kafkaProducer
+
+        public BoletoController(IBoletoService boletoService,
+            //, IProducer<string, string> kafkaProducer,
+            IHttpClientFactory httpClientFactory
             )
         {
             _boletoService = boletoService;
             //_kafkaProducer = kafkaProducer;
+            _httpClientFactory = httpClientFactory;
         }
 
         [HttpGet]
@@ -101,6 +107,35 @@ namespace Boleto.API.Controllers
             //await _kafkaProducer.ProduceAsync("topico-boleto", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
 
             return Ok(deleted);
+        }
+
+        [HttpGet("download-boleto/{guid}")]
+        public async Task<IActionResult> DownloadBoleto(Guid guid)
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+                        
+            string urlFinanceiro = $"https://localhost:5001/api/Exemplo/download-boleto/{guid}";
+
+            HttpResponseMessage response;
+
+            try
+            {
+                response = await httpClient.GetAsync(urlFinanceiro);
+                response.EnsureSuccessStatusCode();
+            }
+            catch (HttpRequestException e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Erro: {e}");
+            }
+
+            byte[] pdfContent = await response.Content.ReadAsByteArrayAsync();
+
+            // Enviar mensagem para o Kafka
+            //string json = JsonSerializer.Serialize(deleted);
+
+            //await _kafkaProducer.ProduceAsync("topico-boleto", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
+
+            return File(pdfContent, "application/pdf", $"boleto-{guid}.pdf");
         }
     }
 }
