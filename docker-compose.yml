@@ -43,6 +43,17 @@ services:
     container_name: apifinanceiro-service
     ports:
       - 5001:5001 # Porta mapeada para acesso externo
+
+  cursoservice:
+    build:
+      context: ./src/Curso
+      dockerfile: Dockerfile
+    # Configurações adicionais para o micro serviço Usuários
+    container_name: cursos-service
+    ports:
+      - 5004:5004 # Porta mapeada para acesso externo
+    depends_on:
+      - db
       
   frontend:
     build:
