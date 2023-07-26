@@ -8,8 +8,8 @@ WORKDIR /app
 COPY . /app
 
 # Restaurar as dependências e compilar a aplicação
-RUN dotnet restore .
-RUN dotnet build --no-restore -c Release .
+RUN dotnet restore ./Curso.Api
+RUN dotnet build --no-restore -c Release ./Curso.Api
 
 # Publicar a aplicação
 RUN dotnet publish --no-build -c Release -o /app/out
