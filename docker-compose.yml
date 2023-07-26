@@ -75,14 +75,14 @@ services:
     ports:
       - "8000:80"  # Porta mapeada para acesso externo
       
-  cursoservice:
-    build:
-      context: ./src/Curso
-      dockerfile: Dockerfile
-    # Configurações adicionais para o micro serviço Usuários
-    container_name: cursos-service
-    ports:
-      - 2181:2181
+  #cursoservice:
+  #  build:
+  #    context: ./src/Curso
+  #    dockerfile: Dockerfile
+  #  # Configurações adicionais para o micro serviço Usuários
+  #  container_name: cursos-service
+  #  ports:
+  #    - 2181:2181
  
   kafka:
     image: confluentinc/cp-kafka:latest
