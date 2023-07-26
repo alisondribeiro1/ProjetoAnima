@@ -7,17 +7,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mdi/font": "7.0.96",
+    "@mdi/font": "7.2.96",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0",
+    "vue-the-mask": "^0.11.1",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@babel/types": "^7.21.4",
-    "@types/node": "^16.8.0",
+    "@types/node": "^20.4.5",
+    "@types/vue-the-mask": "^0.11.1",
     "@types/webfontloader": "^1.6.35",
     "@vitejs/plugin-vue": "^4.0.0",
     "typescript": "^5.0.0",
