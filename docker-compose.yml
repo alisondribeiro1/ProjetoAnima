@@ -23,6 +23,17 @@ services:
       - 5000:5000 # Porta mapeada para acesso externo
     depends_on:
       - db
+
+  identity_server_anima_service:
+    build:
+      context: ./src/identity_server_anima
+      dockerfile: Dockerfile
+    # Configurações adicionais para o micro serviço Usuários
+    container_name: identity_server_anima
+    ports:
+      - 5003:5003 # Porta mapeada para acesso externo
+    depends_on:
+      - db
       
   frontend:
     build:
