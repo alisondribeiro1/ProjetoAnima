@@ -30,7 +30,7 @@ namespace Curso.Api.Controllers
         }
 
         /// <summary>
-        /// Buscar curso oferta por Id com as descrições.
+        /// Buscar curso oferta por Id com as descricoes.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
