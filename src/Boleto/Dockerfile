@@ -1,5 +1,5 @@
 # Especifica a imagem base
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
@@ -8,21 +8,21 @@ WORKDIR /app
 COPY . /app
 
 # Restaurar as dependências e compilar a aplicação
-RUN dotnet restore .
-RUN dotnet build --no-restore -c Release .
+RUN dotnet restore ./Boleto.API
+RUN dotnet build --no-restore -c Release ./Boleto.API
 
 # Publicar a aplicação
 RUN dotnet publish --no-build -c Release -o /app/out
 
 # Definir a imagem base para executar a aplicação
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 
 # Copiar os arquivos publicados da etapa anterior
 WORKDIR /app
 COPY --from=build /app/out /app
 
-ENV ASPNETCORE_URLS=http://*:5005
-EXPOSE 5005
+ENV ASPNETCORE_URLS=http://*:5003
+EXPOSE 5003
 
 # Definir o comando de entrada para iniciar a aplicação
-CMD ["dotnet", "identity_server_anima.dll"]
+CMD ["dotnet", "Boleto.API.dll"]

@@ -23,26 +23,27 @@ services:
       - 5000:5000 # Porta mapeada para acesso externo
     depends_on:
       - db
-
-  identity_server_anima_service:
+  
+  boletoservice:
     build:
-      context: ./src/identity_server_anima
+      context: ./src/Boleto
       dockerfile: Dockerfile
     # Configurações adicionais para o micro serviço Usuários
-    container_name: identity_server_anima
+    container_name: boleto-service
     ports:
       - 5003:5003 # Porta mapeada para acesso externo
     depends_on:
       - db
-      
-  frontend:
+  
+  apifinanceiroservice:
     build:
-      context: ./web/frontend
+      context: ./src/ApiFinanceiro
       dockerfile: Dockerfile
-    # Configurações adicionais para o front-end Vue.js
+    # Configurações adicionais para o micro serviço Usuários
+    container_name: apifinanceiro-service
     ports:
-      - "8000:80"  # Porta mapeada para acesso externo
-      
+      - 5001:5001 # Porta mapeada para acesso externo
+
   cursoservice:
     build:
       context: ./src/Curso
@@ -53,6 +54,56 @@ services:
       - 5004:5004 # Porta mapeada para acesso externo
     depends_on:
       - db
+      
+
+  identity_server_anima_service:
+    build:
+      context: ./src/identity_server_anima
+      dockerfile: Dockerfile
+    # Configurações adicionais para o micro serviço Usuários
+    container_name: identity_server_anima
+    ports:
+      - 5005:5005 # Porta mapeada para acesso externo
+    depends_on:
+      - db
+      
+  frontend:
+    build:
+      context: ./web/frontend
+      dockerfile: Dockerfile
+    # Configurações adicionais para o front-end Vue.js
+    ports:
+      - "8000:80"  # Porta mapeada para acesso externo
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    networks: 
+      - net
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 2181:2181
+ 
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    networks: 
+      - net
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+networks: 
+  net:
+    driver: bridge
     
 
 #  certificadosservice:
