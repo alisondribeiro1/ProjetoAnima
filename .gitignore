@@ -19,7 +19,6 @@ pnpm-debug.log*
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,visualstudiocode,aspnetcore,dotnetcore,visualstudio
