@@ -21,8 +21,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
 COPY --from=build /app/out /app
 
-ENV ASPNETCORE_URLS=http://*:5003
-EXPOSE 5003
+ENV ASPNETCORE_URLS=http://*:5005
+EXPOSE 5005
 
 # Definir o comando de entrada para iniciar a aplicação
 CMD ["dotnet", "identity_server_anima.dll"]

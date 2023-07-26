@@ -63,7 +63,7 @@ services:
     # Configurações adicionais para o micro serviço Usuários
     container_name: identity_server_anima
     ports:
-      - 5003:5003 # Porta mapeada para acesso externo
+      - 5005:5005 # Porta mapeada para acesso externo
     depends_on:
       - db
       
