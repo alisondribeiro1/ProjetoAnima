@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boleto.API", "Boleto.API\Boleto.API.csproj", "{261F658F-E64E-4C96-B21A-1C654C03B818}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4835467A-22D7-4106-B0D9-BBE97DAE086E} = {4835467A-22D7-4106-B0D9-BBE97DAE086E}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boleto.Domain", "Boleto.Domain\Boleto.Domain.csproj", "{4835467A-22D7-4106-B0D9-BBE97DAE086E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boleto.Infrastructure", "Boleto.Infrastructure\Boleto.Infrastructure.csproj", "{5A71563F-B1E4-44EC-A7ED-1937BD5962AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{261F658F-E64E-4C96-B21A-1C654C03B818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{261F658F-E64E-4C96-B21A-1C654C03B818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{261F658F-E64E-4C96-B21A-1C654C03B818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{261F658F-E64E-4C96-B21A-1C654C03B818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4835467A-22D7-4106-B0D9-BBE97DAE086E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4835467A-22D7-4106-B0D9-BBE97DAE086E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4835467A-22D7-4106-B0D9-BBE97DAE086E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4835467A-22D7-4106-B0D9-BBE97DAE086E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A71563F-B1E4-44EC-A7ED-1937BD5962AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A71563F-B1E4-44EC-A7ED-1937BD5962AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A71563F-B1E4-44EC-A7ED-1937BD5962AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A71563F-B1E4-44EC-A7ED-1937BD5962AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A69E5CE9-87EC-4C51-A3C8-1563681AFB5F}
+	EndGlobalSection
+EndGlobal
