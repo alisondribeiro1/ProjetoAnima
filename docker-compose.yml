@@ -12,6 +12,8 @@ services:
       - 5432:5432
     volumes:
       - ./data:/var/lib/postgresql/data
+    networks: 
+      - net
       
   usuarioservice:
     build:
@@ -19,6 +21,8 @@ services:
       dockerfile: Dockerfile
     # Configurações adicionais para o micro serviço Usuários
     container_name: usuarios-service
+    networks: 
+      - net
     ports:
       - 5000:5000 # Porta mapeada para acesso externo
     depends_on:
@@ -30,6 +34,8 @@ services:
       dockerfile: Dockerfile
     # Configurações adicionais para o micro serviço Usuários
     container_name: boleto-service
+    networks: 
+      - net
     ports:
       - 5003:5003 # Porta mapeada para acesso externo
     depends_on:
@@ -41,6 +47,8 @@ services:
       dockerfile: Dockerfile
     # Configurações adicionais para o micro serviço Usuários
     container_name: apifinanceiro-service
+    networks: 
+      - net
     ports:
       - 5001:5001 # Porta mapeada para acesso externo
 
@@ -50,6 +58,8 @@ services:
       dockerfile: Dockerfile
     # Configurações adicionais para o micro serviço Usuários
     container_name: cursos-service
+    networks: 
+      - net
     ports:
       - 5004:5004 # Porta mapeada para acesso externo
     depends_on:
@@ -62,6 +72,8 @@ services:
       dockerfile: Dockerfile
     # Configurações adicionais para o micro serviço Usuários
     container_name: identity_server_anima
+    networks: 
+      - net
     ports:
       - 5005:5005 # Porta mapeada para acesso externo
     depends_on:
@@ -73,6 +85,8 @@ services:
       dockerfile: Dockerfile
     # Configurações adicionais para o micro serviço Usuários
     container_name: matricula-service
+    networks: 
+      - net
     ports:
       - 5006:5006 # Porta mapeada para acesso externo
     depends_on:
@@ -83,6 +97,8 @@ services:
       context: ./web/frontend
       dockerfile: Dockerfile
     # Configurações adicionais para o front-end Vue.js
+    networks: 
+      - net
     ports:
       - "8000:80"  # Porta mapeada para acesso externo
 
@@ -98,6 +114,8 @@ services:
  
   kafka:
     image: confluentinc/cp-kafka:latest
+    hostname: kafka
+    container_name: kafka
     networks: 
       - net
     depends_on:

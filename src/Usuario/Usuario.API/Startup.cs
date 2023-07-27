@@ -5,6 +5,7 @@ using Usuario.Infrastructure.Repositories.Interfaces;
 using Usuario.Infrastructure.Repositories;
 using Usuario.Infrastructure.Services.Interfaces;
 using Usuario.Infrastructure.Services;
+using Npgsql;
 
 namespace Usuario.API
 {
@@ -13,7 +14,8 @@ namespace Usuario.API
         // Construtor e outras propriedades omitidas para brevidade
 
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   
+
             IConfiguration configuration = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -30,7 +32,7 @@ namespace Usuario.API
             {
                 var config = new ProducerConfig
                 {
-                    BootstrapServers = "localhost:9092",
+                    BootstrapServers = "kafka:29092",
                     // Outras configurações do produtor, se necessário
                 };
                 return new ProducerBuilder<string, string>(config).Build();
