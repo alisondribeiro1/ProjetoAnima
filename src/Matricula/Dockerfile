@@ -1,5 +1,5 @@
 # Especifica a imagem base
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
@@ -15,7 +15,7 @@ RUN dotnet build --no-restore -c Release .
 RUN dotnet publish --no-build -c Release -o /app/out
 
 # Definir a imagem base para executar a aplicação
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 
 # Copiar os arquivos publicados da etapa anterior
 WORKDIR /app
@@ -25,4 +25,4 @@ ENV ASPNETCORE_URLS=http://*:5005
 EXPOSE 5005
 
 # Definir o comando de entrada para iniciar a aplicação
-CMD ["dotnet", "Matricula.dll"]
+CMD ["dotnet", "Matricula.API.dll"]

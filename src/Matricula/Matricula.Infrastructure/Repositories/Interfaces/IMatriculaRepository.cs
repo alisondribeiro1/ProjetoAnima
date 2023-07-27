@@ -5,9 +5,9 @@ namespace Matricula.Infrastructure.Repositories.Interfaces
     public interface IMatriculaRepository
     {
         Task<List<MatriculaModel>> GetAll();
-        Task<MatriculaModel> GetById(int idmatricula);
+        Task<MatriculaModel> GetById(int idMatricula);
         Task<MatriculaModel> Create(MatriculaModel matricula);
-        Task<MatriculaModel> Update(MatriculaModel matricula, int idmatricula);
-        Task<bool> DeleteById(int idmatricula);
+        Task<MatriculaModel> Update(MatriculaModel matricula, int idMatricula);
+        Task<bool> DeleteById(int idMatricula);
     }
 }

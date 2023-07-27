@@ -20,9 +20,9 @@ namespace Matricula.Infrastructure.Repositories
             return await _dbContext.Matriculas.ToListAsync();
         }
 
-        public async Task<MatriculaModel> GetById(int idmatricula)
+        public async Task<MatriculaModel> GetById(int idMatricula)
         {
-            return await _dbContext.Matriculas.FirstOrDefaultAsync(a => a.IdMatricula == idmatricula);
+            return await _dbContext.Matriculas.FirstOrDefaultAsync(a => a.IdMatricula == idMatricula);
         }
 
         public async Task<MatriculaModel> Create(MatriculaModel matricula)
@@ -33,12 +33,12 @@ namespace Matricula.Infrastructure.Repositories
             return matricula;   
         }
 
-        public async Task<MatriculaModel> Update(MatriculaModel matricula, int idmatricula)
+        public async Task<MatriculaModel> Update(MatriculaModel matricula, int idMatricula)
         {
-            MatriculaModel matriculaExistente = await GetById(idmatricula);
+            MatriculaModel matriculaExistente = await GetById(idMatricula);
             if (matriculaExistente == null)
             {
-                throw new Exception($"Usuário para o ID: {idmatricula} não foi encontrado no banco de dados.");   
+                throw new Exception($"Usuário para o ID: {idMatricula} não foi encontrado no banco de dados.");   
             }
 
             matriculaExistente.IdMatricula = matricula.IdMatricula;
@@ -54,12 +54,12 @@ namespace Matricula.Infrastructure.Repositories
             return matriculaExistente;
         }
 
-        public async Task<bool> DeleteById(int idmatricula)
+        public async Task<bool> DeleteById(int idMatricula)
         {
-            MatriculaModel matriculaExistente = await GetById(idmatricula);
+            MatriculaModel matriculaExistente = await GetById(idMatricula);
             if (matriculaExistente == null)
             {
-                throw new Exception($"Usuario para o ID: {idmatricula} não foi encontrado no banco de dados.");
+                throw new Exception($"Usuario para o ID: {idMatricula} não foi encontrado no banco de dados.");
             }
             
             _dbContext.Matriculas.Remove(matriculaExistente);

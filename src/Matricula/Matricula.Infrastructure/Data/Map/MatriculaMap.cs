@@ -13,7 +13,7 @@ namespace Matricula.Infrastructure.Data.Map
             builder.HasKey(x => x.IdMatricula);
 
             builder.Property(x => x.IdMatricula)
-                   .HasColumnName("Idmatricula") // Especifica o nome da coluna sem aspas
+                   .HasColumnName("idMatricula") // Especifica o nome da coluna sem aspas
                    .ValueGeneratedOnAdd();
 
             builder.Property(x => x.IdCurso)

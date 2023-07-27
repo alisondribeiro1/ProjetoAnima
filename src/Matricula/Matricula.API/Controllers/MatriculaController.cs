@@ -11,12 +11,12 @@ namespace Matricula.API.Controllers
     public class MatriculaController : ControllerBase
     {
         private readonly IMatriculaRepository _matriculaRepository;
-        private readonly IProducer<string, string> _kafkaProducer;
+        //private readonly IProducer<string, string> _kafkaProducer;
 
-        public MatriculaController(IMatriculaRepository matriculaRepository, IProducer<string, string> kafkaProducer)
+        public MatriculaController(IMatriculaRepository matriculaRepository) //, IProducer<string, string> kafkaProducer
         {
             _matriculaRepository = matriculaRepository;
-            _kafkaProducer = kafkaProducer;
+            //_kafkaProducer = kafkaProducer;
         }
 
         [HttpGet]
@@ -25,22 +25,22 @@ namespace Matricula.API.Controllers
             List<MatriculaModel> matriculas = await _matriculaRepository.GetAll();
             
             // Enviar mensagem para o Kafka
-            string json = JsonSerializer.Serialize(matriculas);
+            //string json = JsonSerializer.Serialize(matriculas);
 
-            await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
+            //await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
 
             return Ok(matriculas);
         }
 
-        [HttpGet("{idmatricula}")]
-        public async Task<ActionResult<MatriculaModel>> GetById(int idmatricula)
+        [HttpGet("{idMatricula}")]
+        public async Task<ActionResult<MatriculaModel>> GetById(int idMatricula)
         {
-            MatriculaModel matricula = await _matriculaRepository.GetById(idmatricula);
+            MatriculaModel matricula = await _matriculaRepository.GetById(idMatricula);
             
             // Enviar mensagem para o Kafka
-            string json = JsonSerializer.Serialize(matricula);
+            //string json = JsonSerializer.Serialize(matricula);
 
-            await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
+            //await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
             
             return Ok(matricula);
         }
@@ -56,14 +56,14 @@ namespace Matricula.API.Controllers
             MatriculaModel matricula = await _matriculaRepository.Create(matriculaModel);
             
             // Enviar mensagem para o Kafka
-            string json = JsonSerializer.Serialize(matricula);
+            //string json = JsonSerializer.Serialize(matricula);
 
-            await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
+            //await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
             
             return Ok(matricula);
         }
         
-        [HttpPut("{idmatricula}")]
+        [HttpPut("{idMatricula}")]
         public async Task<ActionResult<MatriculaModel>> Update([FromBody] MatriculaModel matriculaModel, int idMatricula)
         {
             if (matriculaModel.IdUsuario == 0)
@@ -74,22 +74,22 @@ namespace Matricula.API.Controllers
             MatriculaModel matricula = await _matriculaRepository.Update(matriculaModel, idMatricula);
             
             // Enviar mensagem para o Kafka
-            string json = JsonSerializer.Serialize(matricula);
+            //string json = JsonSerializer.Serialize(matricula);
 
-            await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
+            //await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
             
             return Ok(matricula);
         }
 
-        [HttpDelete("{idmatricula}")]
-        public async Task<ActionResult<MatriculaModel>> DeleteById(int idmatricula)
+        [HttpDelete("{idMatricula}")]
+        public async Task<ActionResult<MatriculaModel>> DeleteById(int idMatricula)
         {
-            bool deleted = await _matriculaRepository.DeleteById(idmatricula);
+            bool deleted = await _matriculaRepository.DeleteById(idMatricula);
             
             // Enviar mensagem para o Kafka
-            string json = JsonSerializer.Serialize(deleted);
+            //string json = JsonSerializer.Serialize(deleted);
 
-            await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
+            //await _kafkaProducer.ProduceAsync("topico-matricula", new Message<string, string> { Key = Guid.NewGuid().ToString(), Value = json });
             
             return Ok(deleted);
         }
