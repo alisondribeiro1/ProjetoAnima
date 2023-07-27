@@ -31,7 +31,7 @@ export const useBoletoStore = defineStore("boleto", {
     },
     async buscarBoletos(): Promise<Array<BoletoModel> | []> {
       try {
-        const response = await axios.get("http://localhost:5184/api/Boleto");
+        const response = await axios.get("http://localhost:5003/api/Boleto");
 
         response.data.forEach((element: BoletoModel) => {
           this.listaBoletos.push(element);
