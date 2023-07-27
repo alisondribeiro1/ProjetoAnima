@@ -33,6 +33,6 @@ namespace Matricula.Infrastructure.Data.Map
             builder.Property(x => x.Aprovado)
                    .HasColumnName("aprovado")
                    .IsRequired();
-    }
+       }
     }
 }

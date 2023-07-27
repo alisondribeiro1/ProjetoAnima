@@ -5,6 +5,11 @@ using Matricula.Infrastructure.Repositories.Interfaces;
 using Matricula.Infrastructure.Repositories;
 using Matricula.Infrastructure.Services.Interfaces;
 using Matricula.Infrastructure.Services;
+using Nota.Infrastructure.Data;
+using Nota.Infrastructure.Repositories.Interfaces;
+using Nota.Infrastructure.Repositories;
+using Nota.Infrastructure.Services.Interfaces;
+using Nota.Infrastructure.Services;
 
 namespace Matricula.API
 {
@@ -39,6 +44,8 @@ namespace Matricula.API
             // Outros serviços e configurações adicionais
             services.AddScoped<IMatriculaService, MatriculaService>();
             services.AddScoped<IMatriculaRepository, MatriculaRepository>();
+            services.AddScoped<INotaRepository, NotaRepository>();
+            services.AddScoped<INotaService, NotaService>();
 
             // Configurar os controllers da API
             services.AddControllers();

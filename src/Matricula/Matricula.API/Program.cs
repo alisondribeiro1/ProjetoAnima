@@ -3,6 +3,11 @@ using Matricula.Infrastructure.Repositories;
 using Matricula.Infrastructure.Repositories.Interfaces;
 using Matricula.Infrastructure.Services;
 using Matricula.Infrastructure.Services.Interfaces;
+using Nota.Infrastructure.Data;
+using Nota.Infrastructure.Repositories;
+using Nota.Infrastructure.Repositories.Interfaces;
+using Nota.Infrastructure.Services;
+using Nota.Infrastructure.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Matricula.API
@@ -31,6 +36,8 @@ namespace Matricula.API
 
             builder.Services.AddScoped<IMatriculaRepository, MatriculaRepository>();
             builder.Services.AddScoped<IMatriculaService, MatriculaService>();
+            builder.Services.AddScoped<INotaRepository, NotaRepository>();
+            builder.Services.AddScoped<INotaService, NotaService>();
             //builder.Services.AddScoped<ICategoriaRepositorio, CategoriaRepositorio>();
             //builder.Services.AddScoped<ICursoOfertaRepositorio, CursoOfertaRepositorio>();
             //builder.Services.AddScoped<IModeloRepositorio, ModeloRepositorio>();

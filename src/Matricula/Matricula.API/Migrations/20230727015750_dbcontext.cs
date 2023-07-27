@@ -26,6 +26,23 @@ namespace Matricula.API.Migrations
                 {
                     table.PrimaryKey("PK_matricula", x => x.idMatricula);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "nota",
+                columns: table => new
+                {
+                    idNota = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    idMatricula = table.Column<int>(type: "integer", maxLength: 50, nullable: false),
+                    nota1 = table.Column<int>(type: "integer", nullable: true),
+                    nota2 = table.Column<int>(type: "integer", nullable: true),
+                    nota3 = table.Column<int>(type: "integer", nullable: true),
+                    media = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_nota", x => x.idNota);
+                });
         }
 
         /// <inheritdoc />
@@ -33,6 +50,9 @@ namespace Matricula.API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "matricula");
+
+            migrationBuilder.DropTable(
+                name: "nota");
         }
     }
 }

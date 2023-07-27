@@ -5,7 +5,7 @@ namespace Nota.Domain.Models
     public class NotaModel
     {
         public int IdNota { get; set; }
-        public int idMatricula{ get; set; }
+        public int IdMatricula{ get; set; }
         public int? Nota1 { get; set; }
         public int? Nota2 { get; set; }
         public int? Nota3 { get; set; }
