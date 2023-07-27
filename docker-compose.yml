@@ -67,6 +67,17 @@ services:
     depends_on:
       - db
       
+  matriculaservice:
+    build:
+      context: ./src/Matricula
+      dockerfile: Dockerfile
+    # Configurações adicionais para o micro serviço Usuários
+    container_name: matricula-service
+    ports:
+      - 5005:5005 # Porta mapeada para acesso externo
+    depends_on:
+      - db
+      
   frontend:
     build:
       context: ./web/frontend
