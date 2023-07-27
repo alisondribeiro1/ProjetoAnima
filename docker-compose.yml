@@ -74,7 +74,7 @@ services:
     # Configurações adicionais para o micro serviço Usuários
     container_name: matricula-service
     ports:
-      - 5005:5005 # Porta mapeada para acesso externo
+      - 5006:5006 # Porta mapeada para acesso externo
     depends_on:
       - db
       
