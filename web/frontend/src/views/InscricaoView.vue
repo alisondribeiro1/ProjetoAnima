@@ -1,4 +1,29 @@
 <template>
+  <v-app-bar color="cyan-lighten-2" prominent>
+        <v-spacer></v-spacer>
+
+        <v-btn @Click="redirectOnClick2(routes[0])">Home</v-btn>
+
+        <v-menu v-if="routes[0] !== '/Login'">
+          <template v-slot:activator="{ props }">
+            <v-btn dark v-bind="props"> Menu </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-item v-for="(item, index) in routes.slice(1)" :key="index">
+              <v-list-item-title
+                @Click="redirectOnClick2(routes[index + 1])"
+                class="mouse-over"
+              >
+                {{ item }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
+        <v-btn variant="text" icon="mdi-account-cowboy-hat"></v-btn>
+        <v-btn variant="text" icon="mdi-bell"></v-btn>
+      </v-app-bar>
   <v-container>
     <v-responsive class="align-top text-center fill-height">
       Painel de Inscrição
@@ -29,6 +54,19 @@
 <script setup lang="ts">
 import GenericCard from "@/components/card/GenericCard.vue";
 import router from "@/router";
+
+const redirectOnClick2 = (route: string) => {
+  router.push({ name: route });
+};
+
+const routes = [
+  "Home",
+  "Inscricao",
+  "Certificados",
+  "Boletos",
+  "Notas",
+  "Cursos",
+];
 
 const redirectOnClick = () => {
   router.push({ name: "Inscricoes" });
