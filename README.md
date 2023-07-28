@@ -18,7 +18,7 @@ Foi proposto desenvolver uma aplicação em C# usando micro serviços, para cria
    <tr>
    <a  href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=git,github,dotnet,c#" />
-    <img src="https://skillicons.dev/icons?i=vscode,vue,postgres,docker" />
+    <img src="https://skillicons.dev/icons?i=vscode,js,vue,typescript,postgres,docker" />
   </a>
  </tr>
   </table>  
