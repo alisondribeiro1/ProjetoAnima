@@ -18,17 +18,22 @@ Foi proposto desenvolver uma aplicação em C# usando micro serviços, para cria
 ### Metodologias Ágeis 
 Foi utilizado a metologia ágil Kanbam. Para uma melhor organização o projeto foi fragmentado em quatro quadros, sendo  to do(a fazer) as tarefas que precisam ser comprimidas, doing(em andamento) as tarefas que já estão sendo desenvolvidas, done(feito) as taferas que já foram concluídas e úteis onde está todos os links e arquivos que possam ser úteis ao projeto.
 
-![trello](https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/39140321-2181-4e45-bbcd-2dfb45715369)
+<h2 align="center">
+   <img  src="https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/39140321-2181-4e45-bbcd-2dfb45715369" alt="Trello"/>
+</h2>
 
 ### Fluxo:
-![fluxo1](https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/e2dec40a-70b6-4441-8864-ee0736b8f954)
-
-![fluxo2](https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/52e8179a-45fc-4e7c-a341-134e05c8cdbc)
+<h2 align="center">
+   <img  src="https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/e2dec40a-70b6-4441-8864-ee0736b8f954" alt="Fluxo1"/>
+   <img  src="https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/52e8179a-45fc-4e7c-a341-134e05c8cdbc" alt="Fluxo2"/>
+</h2>
 
 ### Estrutura do banco de dados e relacionamento:
-![db](https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/47226409-2826-4349-a95b-547938b0f842)
 
-![db2](https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/14e03b53-d032-4912-b6db-29b702ea2854)
+<h2 align="center">
+   <img  src="https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/47226409-2826-4349-a95b-547938b0f842" alt="db1"/><br/>
+   <img  src="https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/14e03b53-d032-4912-b6db-29b702ea2854" alt="db2"/>
+</h2>
 
 
 ### APIs:
