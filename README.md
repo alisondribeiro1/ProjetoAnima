@@ -44,6 +44,10 @@ Foi utilizado a metologia ágil Kanbam. Para uma melhor organização o projeto 
 #### Matrícula
 ![matriculaapi](https://github.com/alisondribeiro1/ProjetoAnima/assets/132950342/85e91a44-9d60-4c91-955b-eeb44ac6c317)
 
+#### Identity
+![image](https://github.com/alisondribeiro1/ProjetoAnima/assets/52212371/e36b57a3-9034-480f-b899-6f096cae059a)
+
+
 
 ## Tecnologias utilizadas 
 <table  align= "center">
