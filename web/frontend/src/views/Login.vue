@@ -41,6 +41,8 @@
 </template>
 <script setup lang="ts">
 
+import router from "@/router";
+
 var login = ''
 var senha = ''
 var visible = true;
@@ -54,12 +56,12 @@ async function Login() {
     };
 
     // Faz a requisição para a API utilizando o método POST
-    const response = await fetch('http://localhost:5003/login', {
+    const response = await fetch('http://localhost:5005/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', // Define o tipo do conteúdo enviado
       },
-      body: JSON.stringify(dados), // Converte os dados para formato JSON
+      body: JSON.stringify(dados) // Converte os dados para formato JSON
     });
 
     // Verifica o status da resposta da API
@@ -74,6 +76,8 @@ async function Login() {
     console.error('Erro na requisição:', error);
     // Trate o erro ou exiba uma mensagem de erro para o usuário
   }
+
+  router.push({ name: "Home" });
 }
 
 </script>
